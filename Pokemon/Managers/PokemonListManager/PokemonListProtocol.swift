@@ -6,14 +6,15 @@
 //
 
 import Foundation
-import DefaultNetworkOperationPackage
+import RxSwift
 
-typealias PokemonListResult = Result<PokemonResult, ErrorResponse>
+typealias PokemonListResult = (Result<PokemonResult, ErrorResponse>) -> Void
 
 protocol PokemonListProtocol {
     
-//    private(set) var offSet: String { set }
-//    private(set) var limit: String { set }
+    var pokemonTask: PokemonTask? { get set }
     
-    func fetchPokemons(offset: Int, limit: Int, completion: @escaping (PokemonListResult) -> Void)
+    func fetchPokemons(offset: Int, limit: Int)
+    
+    func subscribePokemonPublisher(with completion: @escaping PokemonListResult) -> Disposable
 }

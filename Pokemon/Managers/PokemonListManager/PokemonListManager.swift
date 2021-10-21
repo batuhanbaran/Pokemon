@@ -6,31 +6,30 @@
 //
 
 import Foundation
-import DefaultNetworkOperationPackage
+import RxSwift
 
 class PokemonListManager: PokemonListProtocol {
-    
+
     typealias PokemonListResult = Result<PokemonResult, ErrorResponse>
+    typealias PokemonListResultBlock = (Result<PokemonResult, ErrorResponse>) -> Void
+    
+    var pokemonTask: PokemonTask?
+    var publishedPokemons = PublishSubject<PokemonListResult>()
     
     static let shared = PokemonListManager()
-    
-    func fetchPokemons(offset: Int, limit: Int, completion: @escaping (PokemonListResult) -> Void) {
-        
-        do {
-            let urlRequest = try PokemonListApiServiceProvider(limit: limit, offset: offset).returnUrlRequest()
-            
-            APIManager.shared.executeRequest(urlRequest: urlRequest) { (result: PokemonListResult) in
-                switch result {
-                case .success(let response):
-                    completion(.success(response))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            }
-            
-        } catch let error {
-            print("error : \(error)")
-        }
 
+    func fetchPokemons(offset: Int, limit: Int) {
+        ApiManager.shared.fetch(task: PokemonTask(limit: limit, offset: offset)) { (result: PokemonListResult) in
+            switch result {
+            case .success(_):
+                self.publishedPokemons.onNext(result)
+            case .failure(let erroResponse):
+                print(erroResponse)
+            }
+        }
+    }
+    
+    func subscribePokemonPublisher(with completion: @escaping PokemonListResultBlock) -> Disposable {
+        return publishedPokemons.subscribe(onNext: completion)
     }
 }

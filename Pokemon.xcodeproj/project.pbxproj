@@ -10,13 +10,10 @@
 		D8C2049427202FB30011A1BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C2049327202FB30011A1BC /* AppDelegate.swift */; };
 		D8C2049827202FB30011A1BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C2049727202FB30011A1BC /* ViewController.swift */; };
 		D8C2049B27202FB30011A1BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8C2049927202FB30011A1BC /* Main.storyboard */; };
-		D8C2049D27202FB50011A1BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8C2049C27202FB50011A1BC /* Assets.xcassets */; };
 		D8C204A027202FB50011A1BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8C2049E27202FB50011A1BC /* LaunchScreen.storyboard */; };
 		D8C204AB27202FB50011A1BC /* PokemonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C204AA27202FB50011A1BC /* PokemonTests.swift */; };
 		D8C204B527202FB50011A1BC /* PokemonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C204B427202FB50011A1BC /* PokemonUITests.swift */; };
 		D8C204B727202FB50011A1BC /* PokemonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C204B627202FB50011A1BC /* PokemonUITestsLaunchTests.swift */; };
-		D8C2051E272031090011A1BC /* PokemonDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C204D5272031090011A1BC /* PokemonDetail.swift */; };
-		D8C2051F272031090011A1BC /* PokemonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C204D6272031090011A1BC /* PokemonList.swift */; };
 		D8C20520272031090011A1BC /* ApiPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C204D8272031090011A1BC /* ApiPaths.swift */; };
 		D8C20521272031090011A1BC /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C204DB272031090011A1BC /* Observable.swift */; };
 		D8C20522272031090011A1BC /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C204DD272031090011A1BC /* UIApplication+Extension.swift */; };
@@ -34,10 +31,6 @@
 		D8C2052E272031090011A1BC /* GenericBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C204ED272031090011A1BC /* GenericBaseView.swift */; };
 		D8C2052F272031090011A1BC /* BaseBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C204EE272031090011A1BC /* BaseBuilder.swift */; };
 		D8C20530272031090011A1BC /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C204EF272031090011A1BC /* BaseView.swift */; };
-		D8C20531272031090011A1BC /* CustomImageViewComponentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C204F2272031090011A1BC /* CustomImageViewComponentContainer.swift */; };
-		D8C20532272031090011A1BC /* CustomImageViewComponentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C204F3272031090011A1BC /* CustomImageViewComponentData.swift */; };
-		D8C20533272031090011A1BC /* CustomImageViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C204F4272031090011A1BC /* CustomImageViewComponent.swift */; };
-		D8C20534272031090011A1BC /* CustomImageLoadingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C204F5272031090011A1BC /* CustomImageLoadingType.swift */; };
 		D8C20535272031090011A1BC /* LabelDistributionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C204F7272031090011A1BC /* LabelDistributionData.swift */; };
 		D8C20536272031090011A1BC /* LabelPackComponentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C204F8272031090011A1BC /* LabelPackComponentData.swift */; };
 		D8C20537272031090011A1BC /* LabelPackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C204F9272031090011A1BC /* LabelPackComponent.swift */; };
@@ -45,9 +38,6 @@
 		D8C20539272031090011A1BC /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C204FC272031090011A1BC /* ItemTableViewCell.swift */; };
 		D8C2053A272031090011A1BC /* ItemListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C204FE272031090011A1BC /* ItemListProtocol.swift */; };
 		D8C2053B272031090011A1BC /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C204FF272031090011A1BC /* ItemListView.swift */; };
-		D8C2053C272031090011A1BC /* SampleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C20501272031090011A1BC /* SampleTest.swift */; };
-		D8C2053D272031090011A1BC /* PageViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C20503272031090011A1BC /* PageViewComponent.swift */; };
-		D8C2053E272031090011A1BC /* PageViewComponentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C20504272031090011A1BC /* PageViewComponentData.swift */; };
 		D8C2053F272031090011A1BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8C20506272031090011A1BC /* Assets.xcassets */; };
 		D8C20540272031090011A1BC /* PokemonListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C20509272031090011A1BC /* PokemonListManager.swift */; };
 		D8C20541272031090011A1BC /* PokemonListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C2050A272031090011A1BC /* PokemonListProtocol.swift */; };
@@ -71,6 +61,12 @@
 		D8C20563272034CD0011A1BC /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = D8C20560272034CD0011A1BC /* loading.json */; };
 		D8C20564272034CD0011A1BC /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C20561272034CD0011A1BC /* LottieView.swift */; };
 		D8C20565272034CD0011A1BC /* pokemon.json in Resources */ = {isa = PBXBuildFile; fileRef = D8C20562272034CD0011A1BC /* pokemon.json */; };
+		D8C364732720916A007D6F96 /* NetworkTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C364722720916A007D6F96 /* NetworkTaskProtocol.swift */; };
+		D8C3647527209172007D6F96 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C3647427209172007D6F96 /* NetworkTask.swift */; };
+		D8C36478272091BA007D6F96 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C36477272091BA007D6F96 /* ErrorResponse.swift */; };
+		D8C3647B272091DB007D6F96 /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C3647A272091DB007D6F96 /* HTTPStatusCode.swift */; };
+		D8C3647D272092A3007D6F96 /* ApiManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C3647C272092A3007D6F96 /* ApiManagerProtocol.swift */; };
+		D8C3647F272093A0007D6F96 /* PokemonTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C3647E272093A0007D6F96 /* PokemonTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,7 +91,6 @@
 		D8C2049327202FB30011A1BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8C2049727202FB30011A1BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D8C2049A27202FB30011A1BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D8C2049C27202FB50011A1BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8C2049F27202FB50011A1BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8C204A127202FB50011A1BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8C204A627202FB50011A1BC /* PokemonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,8 +98,6 @@
 		D8C204B027202FB50011A1BC /* PokemonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C204B427202FB50011A1BC /* PokemonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonUITests.swift; sourceTree = "<group>"; };
 		D8C204B627202FB50011A1BC /* PokemonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		D8C204D5272031090011A1BC /* PokemonDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonDetail.swift; sourceTree = "<group>"; };
-		D8C204D6272031090011A1BC /* PokemonList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonList.swift; sourceTree = "<group>"; };
 		D8C204D8272031090011A1BC /* ApiPaths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiPaths.swift; sourceTree = "<group>"; };
 		D8C204DB272031090011A1BC /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		D8C204DD272031090011A1BC /* UIApplication+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
@@ -122,10 +115,6 @@
 		D8C204ED272031090011A1BC /* GenericBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericBaseView.swift; sourceTree = "<group>"; };
 		D8C204EE272031090011A1BC /* BaseBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseBuilder.swift; sourceTree = "<group>"; };
 		D8C204EF272031090011A1BC /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
-		D8C204F2272031090011A1BC /* CustomImageViewComponentContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageViewComponentContainer.swift; sourceTree = "<group>"; };
-		D8C204F3272031090011A1BC /* CustomImageViewComponentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageViewComponentData.swift; sourceTree = "<group>"; };
-		D8C204F4272031090011A1BC /* CustomImageViewComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageViewComponent.swift; sourceTree = "<group>"; };
-		D8C204F5272031090011A1BC /* CustomImageLoadingType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageLoadingType.swift; sourceTree = "<group>"; };
 		D8C204F7272031090011A1BC /* LabelDistributionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelDistributionData.swift; sourceTree = "<group>"; };
 		D8C204F8272031090011A1BC /* LabelPackComponentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelPackComponentData.swift; sourceTree = "<group>"; };
 		D8C204F9272031090011A1BC /* LabelPackComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelPackComponent.swift; sourceTree = "<group>"; };
@@ -133,9 +122,6 @@
 		D8C204FC272031090011A1BC /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		D8C204FE272031090011A1BC /* ItemListProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListProtocol.swift; sourceTree = "<group>"; };
 		D8C204FF272031090011A1BC /* ItemListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
-		D8C20501272031090011A1BC /* SampleTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleTest.swift; sourceTree = "<group>"; };
-		D8C20503272031090011A1BC /* PageViewComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewComponent.swift; sourceTree = "<group>"; };
-		D8C20504272031090011A1BC /* PageViewComponentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewComponentData.swift; sourceTree = "<group>"; };
 		D8C20506272031090011A1BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8C20509272031090011A1BC /* PokemonListManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonListManager.swift; sourceTree = "<group>"; };
 		D8C2050A272031090011A1BC /* PokemonListProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonListProtocol.swift; sourceTree = "<group>"; };
@@ -154,6 +140,12 @@
 		D8C20560272034CD0011A1BC /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		D8C20561272034CD0011A1BC /* LottieView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		D8C20562272034CD0011A1BC /* pokemon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pokemon.json; sourceTree = "<group>"; };
+		D8C364722720916A007D6F96 /* NetworkTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTaskProtocol.swift; sourceTree = "<group>"; };
+		D8C3647427209172007D6F96 /* NetworkTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
+		D8C36477272091BA007D6F96 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		D8C3647A272091DB007D6F96 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
+		D8C3647C272092A3007D6F96 /* ApiManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManagerProtocol.swift; sourceTree = "<group>"; };
+		D8C3647E272093A0007D6F96 /* PokemonTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,7 +212,6 @@
 				D8C2049327202FB30011A1BC /* AppDelegate.swift */,
 				D8C2049727202FB30011A1BC /* ViewController.swift */,
 				D8C2049927202FB30011A1BC /* Main.storyboard */,
-				D8C2049C27202FB50011A1BC /* Assets.xcassets */,
 				D8C2049E27202FB50011A1BC /* LaunchScreen.storyboard */,
 				D8C204A127202FB50011A1BC /* Info.plist */,
 			);
@@ -247,20 +238,13 @@
 		D8C204D3272031090011A1BC /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				D8C36479272091D0007D6F96 /* HTTP */,
+				D8C36476272091A4007D6F96 /* ErrorResponse */,
+				D8C3647127209152007D6F96 /* NetworkTask */,
 				D8C2055C272033400011A1BC /* ApiManager */,
-				D8C204D4272031090011A1BC /* ApiServiceProviders */,
 				D8C204D7272031090011A1BC /* ApiPaths */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		D8C204D4272031090011A1BC /* ApiServiceProviders */ = {
-			isa = PBXGroup;
-			children = (
-				D8C204D5272031090011A1BC /* PokemonDetail.swift */,
-				D8C204D6272031090011A1BC /* PokemonList.swift */,
-			);
-			path = ApiServiceProviders;
 			sourceTree = "<group>";
 		};
 		D8C204D7272031090011A1BC /* ApiPaths */ = {
@@ -345,25 +329,11 @@
 			isa = PBXGroup;
 			children = (
 				D8C2055F272034CD0011A1BC /* Lottie */,
-				D8C204F1272031090011A1BC /* CustomImageViewComponent */,
 				D8C204F6272031090011A1BC /* LabelPackComponent */,
 				D8C204FA272031090011A1BC /* ItemComponents */,
 				D8C204FD272031090011A1BC /* ItemListViewComponents */,
-				D8C20500272031090011A1BC /* SampleTest */,
-				D8C20502272031090011A1BC /* PageViewComponent */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		D8C204F1272031090011A1BC /* CustomImageViewComponent */ = {
-			isa = PBXGroup;
-			children = (
-				D8C204F2272031090011A1BC /* CustomImageViewComponentContainer.swift */,
-				D8C204F3272031090011A1BC /* CustomImageViewComponentData.swift */,
-				D8C204F4272031090011A1BC /* CustomImageViewComponent.swift */,
-				D8C204F5272031090011A1BC /* CustomImageLoadingType.swift */,
-			);
-			path = CustomImageViewComponent;
 			sourceTree = "<group>";
 		};
 		D8C204F6272031090011A1BC /* LabelPackComponent */ = {
@@ -392,23 +362,6 @@
 				D8C204FF272031090011A1BC /* ItemListView.swift */,
 			);
 			path = ItemListViewComponents;
-			sourceTree = "<group>";
-		};
-		D8C20500272031090011A1BC /* SampleTest */ = {
-			isa = PBXGroup;
-			children = (
-				D8C20501272031090011A1BC /* SampleTest.swift */,
-			);
-			path = SampleTest;
-			sourceTree = "<group>";
-		};
-		D8C20502272031090011A1BC /* PageViewComponent */ = {
-			isa = PBXGroup;
-			children = (
-				D8C20503272031090011A1BC /* PageViewComponent.swift */,
-				D8C20504272031090011A1BC /* PageViewComponentData.swift */,
-			);
-			path = PageViewComponent;
 			sourceTree = "<group>";
 		};
 		D8C20505272031090011A1BC /* SupportingFiles */ = {
@@ -505,6 +458,7 @@
 			children = (
 				D8C2051C272031090011A1BC /* PokemonListViewModel.swift */,
 				D8C2051D272031090011A1BC /* PokemonListViewController.swift */,
+				D8C3647E272093A0007D6F96 /* PokemonTask.swift */,
 			);
 			path = PokemonList;
 			sourceTree = "<group>";
@@ -513,6 +467,7 @@
 			isa = PBXGroup;
 			children = (
 				D8C2055D2720335B0011A1BC /* ApiManager.swift */,
+				D8C3647C272092A3007D6F96 /* ApiManagerProtocol.swift */,
 			);
 			path = ApiManager;
 			sourceTree = "<group>";
@@ -525,6 +480,31 @@
 				D8C20562272034CD0011A1BC /* pokemon.json */,
 			);
 			path = Lottie;
+			sourceTree = "<group>";
+		};
+		D8C3647127209152007D6F96 /* NetworkTask */ = {
+			isa = PBXGroup;
+			children = (
+				D8C364722720916A007D6F96 /* NetworkTaskProtocol.swift */,
+				D8C3647427209172007D6F96 /* NetworkTask.swift */,
+			);
+			path = NetworkTask;
+			sourceTree = "<group>";
+		};
+		D8C36476272091A4007D6F96 /* ErrorResponse */ = {
+			isa = PBXGroup;
+			children = (
+				D8C36477272091BA007D6F96 /* ErrorResponse.swift */,
+			);
+			path = ErrorResponse;
+			sourceTree = "<group>";
+		};
+		D8C36479272091D0007D6F96 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				D8C3647A272091DB007D6F96 /* HTTPStatusCode.swift */,
+			);
+			path = HTTP;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -647,7 +627,6 @@
 			files = (
 				D8C204A027202FB50011A1BC /* LaunchScreen.storyboard in Resources */,
 				D8C20565272034CD0011A1BC /* pokemon.json in Resources */,
-				D8C2049D27202FB50011A1BC /* Assets.xcassets in Resources */,
 				D8C2053F272031090011A1BC /* Assets.xcassets in Resources */,
 				D8C2049B27202FB30011A1BC /* Main.storyboard in Resources */,
 				D8C20563272034CD0011A1BC /* loading.json in Resources */,
@@ -679,29 +658,27 @@
 				D8C20523272031090011A1BC /* String+Extension.swift in Sources */,
 				D8C20544272031090011A1BC /* Sprites.swift in Sources */,
 				D8C2052C272031090011A1BC /* BaseViewModel.swift in Sources */,
-				D8C2053D272031090011A1BC /* PageViewComponent.swift in Sources */,
-				D8C20532272031090011A1BC /* CustomImageViewComponentData.swift in Sources */,
+				D8C3647B272091DB007D6F96 /* HTTPStatusCode.swift in Sources */,
 				D8C2049827202FB30011A1BC /* ViewController.swift in Sources */,
-				D8C2053C272031090011A1BC /* SampleTest.swift in Sources */,
+				D8C364732720916A007D6F96 /* NetworkTaskProtocol.swift in Sources */,
+				D8C3647527209172007D6F96 /* NetworkTask.swift in Sources */,
 				D8C20540272031090011A1BC /* PokemonListManager.swift in Sources */,
-				D8C20534272031090011A1BC /* CustomImageLoadingType.swift in Sources */,
+				D8C3647D272092A3007D6F96 /* ApiManagerProtocol.swift in Sources */,
 				D8C2054B272031090011A1BC /* PokemonListViewModel.swift in Sources */,
-				D8C2051F272031090011A1BC /* PokemonList.swift in Sources */,
 				D8C20520272031090011A1BC /* ApiPaths.swift in Sources */,
 				D8C2052F272031090011A1BC /* BaseBuilder.swift in Sources */,
 				D8C20524272031090011A1BC /* TabBarImages.swift in Sources */,
-				D8C2053E272031090011A1BC /* PageViewComponentData.swift in Sources */,
 				D8C2052A272031090011A1BC /* BaseViewController.swift in Sources */,
 				D8C20543272031090011A1BC /* PokemonSpritesProtocol.swift in Sources */,
+				D8C36478272091BA007D6F96 /* ErrorResponse.swift in Sources */,
 				D8C20549272031090011A1BC /* PokemonDetailViewController.swift in Sources */,
-				D8C2051E272031090011A1BC /* PokemonDetail.swift in Sources */,
 				D8C2052E272031090011A1BC /* GenericBaseView.swift in Sources */,
 				D8C20548272031090011A1BC /* PokemonDetailViewModel.swift in Sources */,
 				D8C20526272031090011A1BC /* FontManager.swift in Sources */,
 				D8C20535272031090011A1BC /* LabelDistributionData.swift in Sources */,
-				D8C20533272031090011A1BC /* CustomImageViewComponent.swift in Sources */,
 				D8C20521272031090011A1BC /* Observable.swift in Sources */,
 				D8C20537272031090011A1BC /* LabelPackComponent.swift in Sources */,
+				D8C3647F272093A0007D6F96 /* PokemonTask.swift in Sources */,
 				D8C20564272034CD0011A1BC /* LottieView.swift in Sources */,
 				D8C20547272031090011A1BC /* PokemonSpritesCollectionViewCell.swift in Sources */,
 				D8C20542272031090011A1BC /* PokemonSpritesManager.swift in Sources */,
@@ -717,7 +694,6 @@
 				D8C2055E2720335B0011A1BC /* ApiManager.swift in Sources */,
 				D8C20546272031090011A1BC /* SplashViewController.swift in Sources */,
 				D8C20528272031090011A1BC /* UserDefaultsWrapperHelper.swift in Sources */,
-				D8C20531272031090011A1BC /* CustomImageViewComponentContainer.swift in Sources */,
 				D8C20536272031090011A1BC /* LabelPackComponentData.swift in Sources */,
 				D8C2052D272031090011A1BC /* GenericDataProtocol.swift in Sources */,
 				D8C20530272031090011A1BC /* BaseView.swift in Sources */,

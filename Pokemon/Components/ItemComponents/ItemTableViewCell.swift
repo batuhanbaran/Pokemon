@@ -17,35 +17,19 @@ class ItemTableViewCell: BaseTableViewCell {
         return temp
     }()
     
-    private lazy var mainStackView: UIStackView = {
-        let temp = UIStackView(arrangedSubviews: [imageViewComponent, cellInfo])
+    private lazy var titleLabel: UILabel = {
+        let temp = UILabel()
         temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.alignment = .center
-        temp.distribution = .fill
-        temp.axis = .horizontal
-        temp.spacing = 20
+        temp.textColor = .black
+        temp.text = " "
+        temp.lineBreakMode = .byWordWrapping
+        temp.numberOfLines = 0
+        temp.contentMode = .center
+        temp.textAlignment = .left
+        temp.font = FontManager.bold(18).value
         return temp
     }()
-    
-    private lazy var imageViewComponent: CustomImageViewComponentContainer = {
-        let temp = CustomImageViewComponentContainer()
-        temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        temp.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        temp.layer.cornerRadius = 4
-        temp.layer.shadowColor = UIColor.black.cgColor
-        temp.layer.shadowOffset = CGSize(width: 0, height: 2)
-        temp.layer.shadowRadius = 4
-        temp.layer.shadowOpacity = 0.6
-        return temp
-    }()
-    
-    private lazy var cellInfo: LabelPackComponent = {
-        let temp = LabelPackComponent(data: getLabelPackComponentData())
-        temp.translatesAutoresizingMaskIntoConstraints = false
-        return temp
-    }()
-    
+
     override func addMajorViews() {
         super.addMajorViews()
         addUserComponents()
@@ -53,7 +37,7 @@ class ItemTableViewCell: BaseTableViewCell {
     
     private func addUserComponents() {
         contentView.addSubview(containerView)
-        containerView.addSubview(mainStackView)
+        containerView.addSubview(titleLabel)
         
         NSLayoutConstraint.activate([
             
@@ -65,13 +49,13 @@ class ItemTableViewCell: BaseTableViewCell {
             
             containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
-            mainStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
+            titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
             
-            mainStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10),
+            titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10),
             
-            mainStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
+            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
             
-            mainStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
+            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
             
         ])
         
@@ -79,17 +63,6 @@ class ItemTableViewCell: BaseTableViewCell {
     
     func setData(by value: GenericDataProtocol) {
         guard let data = value as? ItemTableViewCellData else { return }
-        imageViewComponent.setData(by: data.imageData)
-        cellInfo.setData(by: data.cellInfo)
+        self.titleLabel.text = data.pokemonName
     }
-    
-    private func getLabelPackComponentData() -> LabelPackComponentData {
-        return LabelPackComponentData()
-            .setSubTitleLabelDistributionData(by: LabelDistributionData().setContentMode(by: .left).setTextAlignment(by: .left).setNumberOfLines(by: 2).setLineBreakMode(by: .byTruncatingTail))
-            .setTitleLabelDistributionData(by: LabelDistributionData().setContentMode(by: .left).setTextAlignment(by: .left).setNumberOfLines(by: 1).setLineBreakMode(by: .byTruncatingTail))
-            .setSpacing(by: 5)
-            .setStackViewAlignment(by: .fill)
-        
-    }
-    
 }

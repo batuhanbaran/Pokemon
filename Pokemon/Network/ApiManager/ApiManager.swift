@@ -8,37 +8,39 @@
 import Foundation
 import Alamofire
 
-class ApiManager {
+class ApiManager: ApiManagerProtocol {
     
     static let shared = ApiManager()
-    
-    func fetch<T: Decodable>(completion: @escaping (Result<T, Error>) -> Void) {
-        guard let url = URL(string: ApiPaths.baseUrl.rawValue + ApiPaths.endPoint.rawValue) else {
-            return
-        }
-        
+
+    func fetch<T>(task: NetworkTask, completion: @escaping (Result<T, ErrorResponse>) -> Void) where T : Decodable {
+        guard let url = URL(string: task.baseUrl + task.endpoint) else { return }
         AF.request(url,
-                   method: .get,
-                   headers: headers)
+                   method: task.method,
+                   headers: task.headers)
             .responseData { response in
-                switch response.result {
-                case .success(let res):
-                    if let code = response.response?.statusCode {
-                        switch code {
-                        case 200:
+                if let code = response.response?.statusCode {
+                    let httpStatusCode = HTTPStatusCode(rawValue: code)
+                    
+                    switch httpStatusCode {
+                    case .ok:
+                        switch response.result {
+                        case .success(let res):
                             do {
                                 completion(.success(try JSONDecoder().decode(T.self, from: res)))
-                            } catch let error {
-                                print(String(data: res, encoding: .utf8) ?? "nothing received")
-                                completion(.failure(error))
+                            } catch {
+                                completion(.failure(.decode("Decoding Error!")))
                             }
-                        default:
-                            let error = NSError(domain: response.debugDescription, code: code, userInfo: response.response?.allHeaderFields as? [String: Any])
-                            completion(.failure(error))
+                        case .failure(_):
+                            completion(.failure(.decode("ddf")))
                         }
+                    case .notFound:
+                        completion(.failure(.notFound("404 Not Found!")))
+                    case .unauthorized:
+                        completion(.failure(.unauthorized("Unauthorized Access!")))
+                        
+                    default:
+                        print("asd")
                     }
-                case .failure(let error):
-                    completion(.failure(error))
                 }
             }
     }

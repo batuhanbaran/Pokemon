@@ -20,10 +20,10 @@ final class PokemonDetailViewModel {
     }
     
     func fetchSprites(completion: @escaping (Sprites?) -> Void) {
-        spriteManager.fetchPokemonSprites(url: selectedPokemon.url ?? "") { [weak self] selectedPokemonSprites in
-            self?.sprite = selectedPokemonSprites
-            self?.loadingStatus.value = .done
-            completion(selectedPokemonSprites)
-        }
+//        spriteManager.fetchPokemonSprites(url: selectedPokemon.url ?? "") { [weak self] selectedPokemonSprites in
+//            self?.sprite = selectedPokemonSprites
+//            self?.loadingStatus.value = .done
+//            completion(selectedPokemonSprites)
+//        }
     }
 }

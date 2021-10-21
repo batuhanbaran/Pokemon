@@ -15,7 +15,7 @@ class PokemonListViewController: BaseViewController<PokemonListViewModel> {
         super.prepareViewControllerConfigurations()
         
         addMainComponent()
-        fetchPokemons()
+        
         subscribeViewModelProperties()
     }
     
@@ -37,7 +37,7 @@ class PokemonListViewController: BaseViewController<PokemonListViewModel> {
             
         ])
         
-        self.mainComponent.reloadTableView()
+        fetchPokemons()
     }
     
     private func subscribeViewModelProperties() {
@@ -66,29 +66,30 @@ class PokemonListViewController: BaseViewController<PokemonListViewModel> {
     }
     
     func fetchPokemons() {
-        viewModel.fetchPokemons { [weak self] pokemon in
-            DispatchQueue.main.async {
-                guard let self = self else { return }
-                self.title = "\(pokemon.count) pokemons in \(self.viewModel.totalPokemonCount)"
-                self.mainComponent.reloadTableView()
-            }
-        }
+        viewModel.fetchPokemons()
+        self.mainComponent.reloadTableView()
+//        viewModel.fetchPokemons { [weak self] pokemon in
+//            DispatchQueue.main.async {
+//                guard let self = self else { return }
+//                self.title = "\(pokemon.count) pokemons in \(self.viewModel.totalPokemonCount)"
+//                self.mainComponent.reloadTableView()
+//            }
+//        }
     }
 }
 
 extension PokemonListViewController: PokemonListViewModelOutputDelegate {
     func navigateToPokemonDetail(with selectedPokemon: Pokemon) {
-        let spriteManager = PokemonSpritesManager()
-        let pokemonDetailViewModel = PokemonDetailViewModel(selectedPokemon: selectedPokemon, spriteManager: spriteManager)
-        let pokemonDetailVC = PokemonDetailViewController(viewModel: pokemonDetailViewModel, lottieName: "loading")
-        pokemonDetailVC.title = selectedPokemon.name?.capitalizingFirstLetter() ?? ""
-        self.navigationController?.pushViewController(pokemonDetailVC, animated: true)
+//        let spriteManager = PokemonSpritesManager()
+//        let pokemonDetailViewModel = PokemonDetailViewModel(selectedPokemon: selectedPokemon, spriteManager: spriteManager)
+//        let pokemonDetailVC = PokemonDetailViewController(viewModel: pokemonDetailViewModel, lottieName: "loading")
+//        pokemonDetailVC.title = selectedPokemon.name?.capitalizingFirstLetter() ?? ""
+//        self.navigationController?.pushViewController(pokemonDetailVC, animated: true)
     }
     
     func hasMoreLoaded() {
         DispatchQueue.main.async {
             self.mainComponent.reloadTableView()
-            
         }
     }
 }

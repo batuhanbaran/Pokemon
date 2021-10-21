@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 typealias LoadingStateBlock = (LoadingState) -> Void
 
@@ -32,30 +33,32 @@ final class PokemonListViewModel {
     var currentPokemonCount = Observable<Int>(value: 0)
     var loadingStatus = Observable<LoadingState>(value: .loading)
     
+    let disposeBag = DisposeBag()
+    
     weak var delegate: PokemonListViewModelOutputDelegate?
     
     init(manager: PokemonListProtocol) {
         self.manager = manager
+        subscribeManagerPublisher()
     }
     
-    func fetchPokemons(completion: @escaping ([Pokemon]) -> Void) {
-        manager.fetchPokemons(offset: offset, limit: limit) { [weak self] pokemonResponse in
-            guard let self = self else { return }
-            self.loadingStatus.value = .loading
-            switch pokemonResponse {
-            case .success(let response):
-                guard let pokemons = response.results else { break }
-                for pokemon in pokemons {
-                    self.pokemons.append(pokemon)
-                }
-                self.totalPokemonCount = response.count ?? 0
-                self.currentPokemonCount.value = self.pokemons.count
-                self.loadingStatus.value = .done
-                completion(pokemons)
-            case .failure(let error):
-                print(error)
+    func fetchPokemons() {
+        manager.fetchPokemons(offset: offset, limit: limit)
+    }
+    
+    func subscribeManagerPublisher() {
+        loadingStatus.value = .loading
+        manager.subscribePokemonPublisher { [weak self] result in
+            switch result {
+            case .success(let pokemonResult):
+                guard let pokemons = pokemonResult.results else { return }
+                self?.pokemons = pokemons
+                self?.loadingStatus.value = .done
+            case .failure(let errorResponse):
+                print(errorResponse)
             }
         }
+        .disposed(by: disposeBag)
     }
     
     func navigateToPokemonDetail(with selectedPokemon: Pokemon) {
@@ -83,21 +86,41 @@ extension PokemonListViewModel: ItemListProtocol {
     
     func loadMore() {
         offset += 15
-        self.loadingStatus.value = .loading
-        manager.fetchPokemons(offset: offset, limit: limit) { [weak self] pokemonResponse in
-            guard let self = self else { return }
-            switch pokemonResponse {
-            case .success(let response):
-                guard let pokemons = response.results else { break }
-                for pokemon in pokemons {
-                    self.pokemons.append(pokemon)
-                }
-                self.loadingStatus.value = .done
-                self.currentPokemonCount.value = self.pokemons.count
-                self.delegate?.hasMoreLoaded()
-            case .failure(let error):
-                print(error)
-            }
-        }
+//        self.loadingStatus.value = .loading
+//        manager.fetchPokemons(offset: offset, limit: limit) { [weak self] pokemonResponse in
+//            guard let self = self else { return }
+//            switch pokemonResponse {
+//            case .success(let response):
+//                guard let pokemons = response.results else { break }
+//                for pokemon in pokemons {
+//                    self.pokemons.append(pokemon)
+//                }
+//                self.loadingStatus.value = .done
+//                self.currentPokemonCount.value = self.pokemons.count
+//                self.delegate?.hasMoreLoaded()
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
     }
 }
+
+
+
+//        manager.fetchPokemons(offset: offset, limit: limit) { [weak self] pokemonResponse in
+//            guard let self = self else { return }
+//            self.loadingStatus.value = .loading
+//            switch pokemonResponse {
+//            case .success(let response):
+//                guard let pokemons = response.results else { break }
+//                for pokemon in pokemons {
+//                    self.pokemons.append(pokemon)
+//                }
+//                self.totalPokemonCount = response.count ?? 0
+//                self.currentPokemonCount.value = self.pokemons.count
+//                self.loadingStatus.value = .done
+//                completion(pokemons)
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
