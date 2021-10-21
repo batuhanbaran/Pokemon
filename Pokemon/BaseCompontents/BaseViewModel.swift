@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol BaseViewModel {
-    var loadingState: Observable<LoadingState> {get set}
-}
+//protocol BaseViewModel {
+//    var loadingState: Observable<LoadingState> {get set}
+//}

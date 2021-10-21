@@ -58,21 +58,21 @@ class PokemonDetailViewController: BaseViewController<PokemonDetailViewModel> {
     }
     
     private func subscribeLoadingState() {
-        viewModel.loadingStatus.observe { [weak self] loadingState in
-            guard let self = self else { return }
-            if loadingState == .loading {
-                DispatchQueue.main.async {
-                    // todo ask teacher
-                    self.collectionView.isHidden = true
-                    self.lottieView.play()
-                }
-            } else {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    self.lottieView.stop()
-                    self.collectionView.isHidden = false
-                }
-            }
-        }
+//        viewModel.loadingStatus.observe { [weak self] loadingState in
+//            guard let self = self else { return }
+//            if loadingState == .loading {
+//                DispatchQueue.main.async {
+//                    // todo ask teacher
+//                    self.collectionView.isHidden = true
+//                    self.lottieView.play()
+//                }
+//            } else {
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+//                    self.lottieView.stop()
+//                    self.collectionView.isHidden = false
+//                }
+//            }
+//        }
     }
     
     private func configureCollectionView() {

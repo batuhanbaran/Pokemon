@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 import RxSwift
+import RxCocoa
 
-typealias LoadingStateBlock = (LoadingState) -> Void
-
-enum LoadingState {
+enum PageLoadingStatus {
     case loading
-    case done
+    case success
+    case error(ErrorResponse)
 }
 
 protocol PokemonListViewModelOutputDelegate: AnyObject {
@@ -28,10 +28,10 @@ final class PokemonListViewModel {
     var pokemons: [Pokemon?] = []
     var offset = 0
     var limit = 15
-    var totalPokemonCount = 0
     
-    var currentPokemonCount = Observable<Int>(value: 0)
-    var loadingStatus = Observable<LoadingState>(value: .loading)
+    var totalPokemonCount = 0
+    var currentPokemonCount = BehaviorRelay<Int>(value: 0)
+    var pageLoadingStatus = BehaviorRelay<PageLoadingStatus>(value: .loading)
     
     let disposeBag = DisposeBag()
     
@@ -47,15 +47,19 @@ final class PokemonListViewModel {
     }
     
     func subscribeManagerPublisher() {
-        loadingStatus.value = .loading
+        pageLoadingStatus.accept(.loading)
         manager.subscribePokemonPublisher { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let pokemonResult):
                 guard let pokemons = pokemonResult.results else { return }
-                self?.pokemons = pokemons
-                self?.loadingStatus.value = .done
+                guard let pokemonCount = pokemonResult.count else { return }
+                self.pokemons = pokemons
+                self.totalPokemonCount = pokemonCount
+                self.currentPokemonCount.accept(pokemons.count)
+                self.pageLoadingStatus.accept(.success)
             case .failure(let errorResponse):
-                print(errorResponse)
+                self.pageLoadingStatus.accept(.error(errorResponse))
             }
         }
         .disposed(by: disposeBag)
@@ -86,6 +90,7 @@ extension PokemonListViewModel: ItemListProtocol {
     
     func loadMore() {
         offset += 15
+        self.currentPokemonCount.accept(offset + limit)
 //        self.loadingStatus.value = .loading
 //        manager.fetchPokemons(offset: offset, limit: limit) { [weak self] pokemonResponse in
 //            guard let self = self else { return }

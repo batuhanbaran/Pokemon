@@ -71,6 +71,7 @@ class LottieView: BaseView {
     }
     
     func play() {
+        animationView.loopMode = .loop
         animationView.play()
     }
     

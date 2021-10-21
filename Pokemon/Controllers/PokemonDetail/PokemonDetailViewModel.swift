@@ -9,7 +9,7 @@ import Foundation
 
 final class PokemonDetailViewModel {
     
-    var loadingStatus = Observable<LoadingState>(value: .loading)
+   // var loadingStatus = Observable<LoadingState>(value: .loading)
     private let spriteManager: PokemonSpritesManager
     var selectedPokemon: Pokemon
     var sprite: Sprites?

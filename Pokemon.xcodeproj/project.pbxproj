@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D8AACBAE27220108002558DD /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = D8AACBAD27220108002558DD /* RxCocoa */; };
+		D8AACBB027220108002558DD /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = D8AACBAF27220108002558DD /* RxRelay */; };
+		D8AACBB227220108002558DD /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D8AACBB127220108002558DD /* RxSwift */; };
 		D8C2049427202FB30011A1BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C2049327202FB30011A1BC /* AppDelegate.swift */; };
 		D8C2049827202FB30011A1BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C2049727202FB30011A1BC /* ViewController.swift */; };
 		D8C2049B27202FB30011A1BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8C2049927202FB30011A1BC /* Main.storyboard */; };
@@ -54,7 +57,6 @@
 		D8C2054C272031090011A1BC /* PokemonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C2051D272031090011A1BC /* PokemonListViewController.swift */; };
 		D8C2054F272032120011A1BC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D8C2054E272032120011A1BC /* Kingfisher */; };
 		D8C20552272032750011A1BC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D8C20551272032750011A1BC /* FirebaseAuth */; };
-		D8C20555272032CC0011A1BC /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D8C20554272032CC0011A1BC /* RxSwift */; };
 		D8C205582720330F0011A1BC /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = D8C205572720330F0011A1BC /* Lottie */; };
 		D8C2055B272033250011A1BC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D8C2055A272033250011A1BC /* Alamofire */; };
 		D8C2055E2720335B0011A1BC /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C2055D2720335B0011A1BC /* ApiManager.swift */; };
@@ -153,11 +155,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8AACBB027220108002558DD /* RxRelay in Frameworks */,
 				D8C2055B272033250011A1BC /* Alamofire in Frameworks */,
-				D8C20555272032CC0011A1BC /* RxSwift in Frameworks */,
 				D8C2054F272032120011A1BC /* Kingfisher in Frameworks */,
+				D8AACBAE27220108002558DD /* RxCocoa in Frameworks */,
 				D8C20552272032750011A1BC /* FirebaseAuth in Frameworks */,
 				D8C205582720330F0011A1BC /* Lottie in Frameworks */,
+				D8AACBB227220108002558DD /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,9 +530,11 @@
 			packageProductDependencies = (
 				D8C2054E272032120011A1BC /* Kingfisher */,
 				D8C20551272032750011A1BC /* FirebaseAuth */,
-				D8C20554272032CC0011A1BC /* RxSwift */,
 				D8C205572720330F0011A1BC /* Lottie */,
 				D8C2055A272033250011A1BC /* Alamofire */,
+				D8AACBAD27220108002558DD /* RxCocoa */,
+				D8AACBAF27220108002558DD /* RxRelay */,
+				D8AACBB127220108002558DD /* RxSwift */,
 			);
 			productName = Pokemon;
 			productReference = D8C2049027202FB30011A1BC /* Pokemon.app */;
@@ -605,9 +611,9 @@
 			packageReferences = (
 				D8C2054D272032120011A1BC /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				D8C20550272032750011A1BC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				D8C20553272032CC0011A1BC /* XCRemoteSwiftPackageReference "RxSwift" */,
 				D8C205562720330F0011A1BC /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				D8C20559272033250011A1BC /* XCRemoteSwiftPackageReference "Alamofire" */,
+				D8AACBAC27220108002558DD /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = D8C2049127202FB30011A1BC /* Products */;
 			projectDirPath = "";
@@ -1068,6 +1074,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D8AACBAC27220108002558DD /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		D8C2054D272032120011A1BC /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -1082,14 +1096,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 8.0.0;
-			};
-		};
-		D8C20553272032CC0011A1BC /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.0.0;
 			};
 		};
 		D8C205562720330F0011A1BC /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
@@ -1111,6 +1117,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D8AACBAD27220108002558DD /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D8AACBAC27220108002558DD /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		D8AACBAF27220108002558DD /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D8AACBAC27220108002558DD /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		D8AACBB127220108002558DD /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D8AACBAC27220108002558DD /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
 		D8C2054E272032120011A1BC /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D8C2054D272032120011A1BC /* XCRemoteSwiftPackageReference "Kingfisher" */;
@@ -1120,11 +1141,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D8C20550272032750011A1BC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
-		};
-		D8C20554272032CC0011A1BC /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D8C20553272032CC0011A1BC /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
 		};
 		D8C205572720330F0011A1BC /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;

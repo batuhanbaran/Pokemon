@@ -6,17 +6,22 @@
 //
 
 import UIKit
+import RxSwift
+import RxRelay
 
 class PokemonListViewController: BaseViewController<PokemonListViewModel> {
 
     private var mainComponent: ItemListView!
+    private let disposeBag = DisposeBag()
     
     override func prepareViewControllerConfigurations() {
         super.prepareViewControllerConfigurations()
         
         addMainComponent()
-        
+        bindStatus()
+        bindTitle()
         subscribeViewModelProperties()
+        fetchPokemons()
     }
     
     private func addMainComponent() {
@@ -36,33 +41,12 @@ class PokemonListViewController: BaseViewController<PokemonListViewModel> {
             mainComponent.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
             
         ])
-        
-        fetchPokemons()
     }
     
     private func subscribeViewModelProperties() {
-        viewModel.loadingStatus.observe { [weak self] loadingState in
-            guard let self = self else { return }
-            if loadingState == .loading {
-                DispatchQueue.main.async {
-                    self.view.alpha = 0.75
-                    self.lottieView.play()
-                }
-            } else {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    self.view.alpha = 1
-                    self.lottieView.stop()
-                }
-                self.mainComponent.reloadTableView()
-            }
-        }
+
         
-        viewModel.currentPokemonCount.observe { [weak self] count in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.title = "\(count) pokemons in \(self.viewModel.totalPokemonCount)"
-            }
-        }
+
     }
     
     func fetchPokemons() {
@@ -91,5 +75,40 @@ extension PokemonListViewController: PokemonListViewModelOutputDelegate {
         DispatchQueue.main.async {
             self.mainComponent.reloadTableView()
         }
+    }
+}
+
+private extension PokemonListViewController {
+    func bindStatus() {
+        viewModel.pageLoadingStatus
+            .subscribe(onNext: { [weak self] pageLoadingStatus in
+                guard let self = self else { return }
+                switch pageLoadingStatus {
+                case .loading:
+                    DispatchQueue.main.async {
+                        self.view.alpha = 0.75
+                        self.lottieView.play()
+                    }
+                case .success:
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.view.alpha = 1
+                        self.lottieView.stop()
+                    }
+                    self.mainComponent.reloadTableView()
+                case let .error(error):
+                    print("error: \(error)")
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func bindTitle() {
+        viewModel.currentPokemonCount
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] count in
+                guard let self = self else { return }
+                self.title = "\(count) pokemons in \(self.viewModel.totalPokemonCount)"
+            })
+            .disposed(by: disposeBag)
     }
 }
