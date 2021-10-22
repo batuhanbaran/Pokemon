@@ -6,24 +6,63 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
+
+protocol PokemonDetailViewModelOutputDelegate: AnyObject {
+    func pokemonUrls(urls: [String])
+}
 
 final class PokemonDetailViewModel {
     
-   // var loadingStatus = Observable<LoadingState>(value: .loading)
     private let spriteManager: PokemonSpritesManager
+    
+    var pageLoadingStatus = BehaviorRelay<PageLoadingStatus>(value: .loading)
     var selectedPokemon: Pokemon
     var sprite: Sprites?
+    var spriteUrls = [String]()
+    
+    let disposeBag = DisposeBag()
+    
+    weak var delegate: PokemonDetailViewModelOutputDelegate?
     
     init(selectedPokemon: Pokemon,spriteManager: PokemonSpritesManager) {
         self.selectedPokemon = selectedPokemon
         self.spriteManager = spriteManager
+        subscribeManagerPublisher()
     }
     
-    func fetchSprites(completion: @escaping (Sprites?) -> Void) {
-//        spriteManager.fetchPokemonSprites(url: selectedPokemon.url ?? "") { [weak self] selectedPokemonSprites in
-//            self?.sprite = selectedPokemonSprites
-//            self?.loadingStatus.value = .done
-//            completion(selectedPokemonSprites)
-//        }
+    func fetchSprites() {
+        guard let selectedPokemonUrl = selectedPokemon.url else { return }
+        spriteManager.fetchPokemonSprites(selectedPokemonUrl: selectedPokemonUrl)
+    }
+    
+    func subscribeManagerPublisher() {
+        self.pageLoadingStatus.accept(.loading)
+        spriteManager.subscribePokemonPublisher { [weak self] spritesResult in
+            guard let self = self else { return }
+            switch spritesResult {
+            case let .success(sprites):
+                self.sprite = sprites
+                guard let data = sprites.sprites else { return }
+                self.handleSpritesUrls(data: data)
+            case let .failure(errorResponse):
+                self.pageLoadingStatus.accept(.error(errorResponse))
+            }
+        }.disposed(by: disposeBag)
+    }
+    
+    func handleSpritesUrls(data: Sprite) {
+        self.spriteUrls.append(data.back_default ?? "")
+        self.spriteUrls.append(data.back_shiny ?? "")
+        self.spriteUrls.append(data.back_female ?? "")
+        self.spriteUrls.append(data.back_shiny_female ?? "")
+        self.spriteUrls.append(data.front_default ?? "")
+        self.spriteUrls.append(data.front_shiny ?? "")
+        self.spriteUrls.append(data.front_shiny_female ?? "")
+        self.spriteUrls = self.spriteUrls.filter({ $0 != ""})
+        
+        self.delegate?.pokemonUrls(urls: self.spriteUrls)
+        self.pageLoadingStatus.accept(.success)
     }
 }

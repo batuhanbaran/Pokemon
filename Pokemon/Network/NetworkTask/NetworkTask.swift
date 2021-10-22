@@ -15,7 +15,7 @@ class NetworkTask: NetworkTaskProtocol {
     var headers: HTTPHeaders
     var method: HTTPMethod
     
-    init(baseUrl: String, endpoint: String, headers: HTTPHeaders, method: HTTPMethod) {
+    init(baseUrl: String, endpoint: String = "", headers: HTTPHeaders, method: HTTPMethod) {
         self.baseUrl = baseUrl
         self.endpoint = endpoint
         self.headers = headers

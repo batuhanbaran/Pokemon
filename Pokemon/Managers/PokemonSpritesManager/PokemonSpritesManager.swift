@@ -6,29 +6,34 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
+
+typealias PokemonSpriteResult = Result<Sprites, ErrorResponse>
+typealias PokemonSpriteResultBlock = (Result<Sprites, ErrorResponse>) -> Void
 
 class PokemonSpritesManager: PokemonSpritesProtocol {
     
-    typealias PokemonSpriteResult = Result<Sprites, ErrorResponse>
+    var pokemonSpritesTask: PokemonSpritesTask?
+    var publishedSprites = PublishSubject<PokemonSpriteResult>()
     
-    var sprites = [Sprites?]()
     static let shared = PokemonListManager()
     
-    func fetchPokemonSprites(url: String, completion: @escaping (Sprites?) -> Void) {
-//        do {
-//            let urlRequest = try PokemonDetailServiceProvider(pokemonUrl: url).returnUrlRequest()
-//            
-//            APIManager.shared.executeRequest(urlRequest: urlRequest) { (result: PokemonSpriteResult) in
-//                switch result {
-//                case .success(let response):
-//                    completion(response)
-//                case .failure(let error):
-//                    print(error)
-//                }
-//            }
-//            
-//        } catch {
-//            print("error")
-//        }
+    func fetchPokemonSprites(selectedPokemonUrl: String) {
+        pokemonSpritesTask = PokemonSpritesTask(selectedPokemonUrl: selectedPokemonUrl)
+        guard let pokemonSpritesTask = pokemonSpritesTask else { return }
+    
+        ApiManager.shared.fetch(task: pokemonSpritesTask ) { (result: PokemonSpriteResult) in
+            switch result {
+            case .success(_):
+                self.publishedSprites.onNext(result)
+            case .failure(let errorResponse):
+                print("error: \(errorResponse)")
+            }
+        }
+    }
+    
+    func subscribePokemonPublisher(with completion: @escaping PokemonSpriteResultBlock) -> Disposable {
+        return self.publishedSprites.subscribe(onNext: completion)
     }
 }

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol StatusProtocol {
+    func bindStatus()
+}
+
 class BaseViewController<V>: UIViewController {
     
     var viewModel: V!

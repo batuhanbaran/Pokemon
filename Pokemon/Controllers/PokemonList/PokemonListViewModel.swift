@@ -26,13 +26,12 @@ final class PokemonListViewModel {
     private let manager: PokemonListProtocol
     
     var pokemons: [Pokemon?] = []
+    var totalPokemonCount = 0
     var offset = 0
     var limit = 15
     
-    var totalPokemonCount = 0
     var currentPokemonCount = BehaviorRelay<Int>(value: 0)
     var pageLoadingStatus = BehaviorRelay<PageLoadingStatus>(value: .loading)
-    
     let disposeBag = DisposeBag()
     
     weak var delegate: PokemonListViewModelOutputDelegate?
@@ -54,9 +53,11 @@ final class PokemonListViewModel {
             case .success(let pokemonResult):
                 guard let pokemons = pokemonResult.results else { return }
                 guard let pokemonCount = pokemonResult.count else { return }
-                self.pokemons = pokemons
+                for pokemon in pokemons {
+                    self.pokemons.append(pokemon)
+                }
                 self.totalPokemonCount = pokemonCount
-                self.currentPokemonCount.accept(pokemons.count)
+                self.currentPokemonCount.accept(self.pokemons.count)
                 self.pageLoadingStatus.accept(.success)
             case .failure(let errorResponse):
                 self.pageLoadingStatus.accept(.error(errorResponse))
@@ -90,42 +91,8 @@ extension PokemonListViewModel: ItemListProtocol {
     
     func loadMore() {
         offset += 15
-        self.currentPokemonCount.accept(offset + limit)
-//        self.loadingStatus.value = .loading
-//        manager.fetchPokemons(offset: offset, limit: limit) { [weak self] pokemonResponse in
-//            guard let self = self else { return }
-//            switch pokemonResponse {
-//            case .success(let response):
-//                guard let pokemons = response.results else { break }
-//                for pokemon in pokemons {
-//                    self.pokemons.append(pokemon)
-//                }
-//                self.loadingStatus.value = .done
-//                self.currentPokemonCount.value = self.pokemons.count
-//                self.delegate?.hasMoreLoaded()
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
+        pageLoadingStatus.accept(.loading)
+        manager.fetchPokemons(offset: offset, limit: limit)
+        pageLoadingStatus.accept(.success)
     }
 }
-
-
-
-//        manager.fetchPokemons(offset: offset, limit: limit) { [weak self] pokemonResponse in
-//            guard let self = self else { return }
-//            self.loadingStatus.value = .loading
-//            switch pokemonResponse {
-//            case .success(let response):
-//                guard let pokemons = response.results else { break }
-//                for pokemon in pokemons {
-//                    self.pokemons.append(pokemon)
-//                }
-//                self.totalPokemonCount = response.count ?? 0
-//                self.currentPokemonCount.value = self.pokemons.count
-//                self.loadingStatus.value = .done
-//                completion(pokemons)
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }

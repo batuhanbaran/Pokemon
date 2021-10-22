@@ -6,8 +6,14 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol PokemonSpritesProtocol {
-    func fetchPokemonSprites(url: String, completion: @escaping (Sprites?) -> Void)
+    
+    var pokemonSpritesTask: PokemonSpritesTask? { get set }
+    
+    func fetchPokemonSprites(selectedPokemonUrl: String)
+    
+    func subscribePokemonPublisher(with completion: @escaping PokemonSpriteResultBlock) -> Disposable
 }
 

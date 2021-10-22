@@ -12,7 +12,7 @@ import RxRelay
 class PokemonListViewController: BaseViewController<PokemonListViewModel> {
 
     private var mainComponent: ItemListView!
-    private let disposeBag = DisposeBag()
+    internal let disposeBag = DisposeBag()
     
     override func prepareViewControllerConfigurations() {
         super.prepareViewControllerConfigurations()
@@ -20,7 +20,6 @@ class PokemonListViewController: BaseViewController<PokemonListViewModel> {
         addMainComponent()
         bindStatus()
         bindTitle()
-        subscribeViewModelProperties()
         fetchPokemons()
     }
     
@@ -43,32 +42,29 @@ class PokemonListViewController: BaseViewController<PokemonListViewModel> {
         ])
     }
     
-    private func subscribeViewModelProperties() {
-
-        
-
-    }
-    
-    func fetchPokemons() {
+    private func fetchPokemons() {
         viewModel.fetchPokemons()
         self.mainComponent.reloadTableView()
-//        viewModel.fetchPokemons { [weak self] pokemon in
-//            DispatchQueue.main.async {
-//                guard let self = self else { return }
-//                self.title = "\(pokemon.count) pokemons in \(self.viewModel.totalPokemonCount)"
-//                self.mainComponent.reloadTableView()
-//            }
-//        }
+    }
+    
+    private func bindTitle() {
+        viewModel.currentPokemonCount
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] count in
+                guard let self = self else { return }
+                self.title = "\(count) pokemons in \(self.viewModel.totalPokemonCount)"
+            })
+            .disposed(by: disposeBag)
     }
 }
 
 extension PokemonListViewController: PokemonListViewModelOutputDelegate {
     func navigateToPokemonDetail(with selectedPokemon: Pokemon) {
-//        let spriteManager = PokemonSpritesManager()
-//        let pokemonDetailViewModel = PokemonDetailViewModel(selectedPokemon: selectedPokemon, spriteManager: spriteManager)
-//        let pokemonDetailVC = PokemonDetailViewController(viewModel: pokemonDetailViewModel, lottieName: "loading")
-//        pokemonDetailVC.title = selectedPokemon.name?.capitalizingFirstLetter() ?? ""
-//        self.navigationController?.pushViewController(pokemonDetailVC, animated: true)
+        let spriteManager = PokemonSpritesManager()
+        let pokemonDetailViewModel = PokemonDetailViewModel(selectedPokemon: selectedPokemon, spriteManager: spriteManager)
+        let pokemonDetailVC = PokemonDetailViewController(viewModel: pokemonDetailViewModel, lottieName: "loading")
+        pokemonDetailVC.title = selectedPokemon.name?.capitalizingFirstLetter() ?? ""
+        self.navigationController?.pushViewController(pokemonDetailVC, animated: true)
     }
     
     func hasMoreLoaded() {
@@ -78,7 +74,7 @@ extension PokemonListViewController: PokemonListViewModelOutputDelegate {
     }
 }
 
-private extension PokemonListViewController {
+extension PokemonListViewController: StatusProtocol {
     func bindStatus() {
         viewModel.pageLoadingStatus
             .subscribe(onNext: { [weak self] pageLoadingStatus in
@@ -98,16 +94,6 @@ private extension PokemonListViewController {
                 case let .error(error):
                     print("error: \(error)")
                 }
-            })
-            .disposed(by: disposeBag)
-    }
-    
-    func bindTitle() {
-        viewModel.currentPokemonCount
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] count in
-                guard let self = self else { return }
-                self.title = "\(count) pokemons in \(self.viewModel.totalPokemonCount)"
             })
             .disposed(by: disposeBag)
     }

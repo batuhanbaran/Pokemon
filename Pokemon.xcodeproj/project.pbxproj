@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D83508892722B74A00AEC50A /* PokemonSpritesTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83508882722B74A00AEC50A /* PokemonSpritesTask.swift */; };
 		D8AACBAE27220108002558DD /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = D8AACBAD27220108002558DD /* RxCocoa */; };
 		D8AACBB027220108002558DD /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = D8AACBAF27220108002558DD /* RxRelay */; };
 		D8AACBB227220108002558DD /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D8AACBB127220108002558DD /* RxSwift */; };
@@ -89,6 +90,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D83508882722B74A00AEC50A /* PokemonSpritesTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonSpritesTask.swift; sourceTree = "<group>"; };
 		D8C2049027202FB30011A1BC /* Pokemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C2049327202FB30011A1BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8C2049727202FB30011A1BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -433,10 +435,11 @@
 		D8C20514272031090011A1BC /* PokemonDetail */ = {
 			isa = PBXGroup;
 			children = (
+				D8C20519272031090011A1BC /* Header */,
 				D8C20515272031090011A1BC /* Cell */,
 				D8C20517272031090011A1BC /* PokemonDetailViewModel.swift */,
 				D8C20518272031090011A1BC /* PokemonDetailViewController.swift */,
-				D8C20519272031090011A1BC /* Header */,
+				D83508882722B74A00AEC50A /* PokemonSpritesTask.swift */,
 			);
 			path = PokemonDetail;
 			sourceTree = "<group>";
@@ -669,6 +672,7 @@
 				D8C364732720916A007D6F96 /* NetworkTaskProtocol.swift in Sources */,
 				D8C3647527209172007D6F96 /* NetworkTask.swift in Sources */,
 				D8C20540272031090011A1BC /* PokemonListManager.swift in Sources */,
+				D83508892722B74A00AEC50A /* PokemonSpritesTask.swift in Sources */,
 				D8C3647D272092A3007D6F96 /* ApiManagerProtocol.swift in Sources */,
 				D8C2054B272031090011A1BC /* PokemonListViewModel.swift in Sources */,
 				D8C20520272031090011A1BC /* ApiPaths.swift in Sources */,

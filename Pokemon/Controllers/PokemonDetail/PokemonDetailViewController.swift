@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class PokemonDetailViewController: BaseViewController<PokemonDetailViewModel> {
     
@@ -27,54 +29,24 @@ class PokemonDetailViewController: BaseViewController<PokemonDetailViewModel> {
         return collectionView
     }()
     
-    var spriteUrls = [String]()
+    
     var sprites: Sprites?
+    var spriteUrls = [String]()
+    let disposeBag = DisposeBag()
     
     override func prepareViewControllerConfigurations() {
         super.prepareViewControllerConfigurations()
+        
+        viewModel.delegate = self
+        bindStatus()
+        configureCollectionView()
         fetchSprites()
-        subscribeLoadingState()
     }
     
     private func fetchSprites() {
-        viewModel.fetchSprites { [weak self] data in
-            DispatchQueue.main.async {
-                guard let self = self else { return }
-                guard let data = data else { return }
-                self.sprites = data
-                
-                self.spriteUrls.append(data.sprites?.back_default ?? "")
-                self.spriteUrls.append(data.sprites?.back_shiny ?? "")
-                self.spriteUrls.append(data.sprites?.back_female ?? "")
-                self.spriteUrls.append(data.sprites?.back_shiny_female ?? "")
-                self.spriteUrls.append(data.sprites?.front_default ?? "")
-                self.spriteUrls.append(data.sprites?.front_shiny ?? "")
-                self.spriteUrls.append(data.sprites?.front_shiny_female ?? "")
-                self.spriteUrls = self.spriteUrls.filter({ $0 != ""})
-                
-                self.configureCollectionView()
-            }
-        }
+        viewModel.fetchSprites()
     }
-    
-    private func subscribeLoadingState() {
-//        viewModel.loadingStatus.observe { [weak self] loadingState in
-//            guard let self = self else { return }
-//            if loadingState == .loading {
-//                DispatchQueue.main.async {
-//                    // todo ask teacher
-//                    self.collectionView.isHidden = true
-//                    self.lottieView.play()
-//                }
-//            } else {
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-//                    self.lottieView.stop()
-//                    self.collectionView.isHidden = false
-//                }
-//            }
-//        }
-    }
-    
+
     private func configureCollectionView() {
         view.addSubview(collectionView)
         NSLayoutConstraint.activate([
@@ -84,7 +56,7 @@ class PokemonDetailViewController: BaseViewController<PokemonDetailViewModel> {
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12)
         ])
         
-        self.collectionView.reloadData()
+        collectionView.reloadData()
     }
 }
 
@@ -117,5 +89,37 @@ extension PokemonDetailViewController: UICollectionViewDataSource, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: 210)
+    }
+}
+
+extension PokemonDetailViewController: StatusProtocol {
+    func bindStatus() {
+        viewModel.pageLoadingStatus
+            .subscribe(onNext: { [weak self] pageLoadingStatus in
+                guard let self = self else { return }
+                switch pageLoadingStatus {
+                case .loading:
+                    DispatchQueue.main.async {
+                        self.collectionView.isHidden = true
+                        self.lottieView.play()
+                    }
+                case .success:
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.collectionView.isHidden = false
+                        self.lottieView.stop()
+                        self.collectionView.reloadData()
+                    }
+                case let .error(error):
+                    print("error: \(error)")
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+}
+
+extension PokemonDetailViewController: PokemonDetailViewModelOutputDelegate {
+    func pokemonUrls(urls: [String]) {
+        self.spriteUrls = urls
+        self.collectionView.reloadData()
     }
 }
