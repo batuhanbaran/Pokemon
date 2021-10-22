@@ -9,10 +9,6 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol PokemonDetailViewModelOutputDelegate: AnyObject {
-    func pokemonUrls(urls: [String])
-}
-
 final class PokemonDetailViewModel {
     
     private let spriteManager: PokemonSpritesManager
@@ -23,8 +19,6 @@ final class PokemonDetailViewModel {
     var spriteUrls = [String]()
     
     let disposeBag = DisposeBag()
-    
-    weak var delegate: PokemonDetailViewModelOutputDelegate?
     
     init(selectedPokemon: Pokemon,spriteManager: PokemonSpritesManager) {
         self.selectedPokemon = selectedPokemon
@@ -62,7 +56,6 @@ final class PokemonDetailViewModel {
         self.spriteUrls.append(data.front_shiny_female ?? "")
         self.spriteUrls = self.spriteUrls.filter({ $0 != ""})
         
-        self.delegate?.pokemonUrls(urls: self.spriteUrls)
         self.pageLoadingStatus.accept(.success)
     }
 }

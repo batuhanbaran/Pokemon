@@ -29,15 +29,12 @@ class PokemonDetailViewController: BaseViewController<PokemonDetailViewModel> {
         return collectionView
     }()
     
-    
-    var sprites: Sprites?
     var spriteUrls = [String]()
     let disposeBag = DisposeBag()
     
     override func prepareViewControllerConfigurations() {
         super.prepareViewControllerConfigurations()
         
-        viewModel.delegate = self
         bindStatus()
         configureCollectionView()
         fetchSprites()
@@ -64,13 +61,13 @@ extension PokemonDetailViewController: UICollectionViewDataSource, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokemonSpritesCollectionViewCell.identifier, for: indexPath) as? PokemonSpritesCollectionViewCell else { return UICollectionViewCell() }
-        cell.configure(with: self.spriteUrls[indexPath.row])
+        cell.configure(with: viewModel.spriteUrls[indexPath.row])
         cell.backgroundColor = .white
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.spriteUrls.count
+        return viewModel.spriteUrls.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -83,7 +80,7 @@ extension PokemonDetailViewController: UICollectionViewDataSource, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCollectionReusableView.identifier, for: indexPath) as? HeaderCollectionReusableView else { return UICollectionReusableView() }
-        header.prepareReuseableView(with: sprites)
+        header.prepareReuseableView(with: viewModel.sprite)
         return header
     }
     
@@ -114,12 +111,5 @@ extension PokemonDetailViewController: StatusProtocol {
                 }
             })
             .disposed(by: disposeBag)
-    }
-}
-
-extension PokemonDetailViewController: PokemonDetailViewModelOutputDelegate {
-    func pokemonUrls(urls: [String]) {
-        self.spriteUrls = urls
-        self.collectionView.reloadData()
     }
 }
