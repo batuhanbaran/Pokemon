@@ -14,7 +14,6 @@ class AuthenticationManager: AuthenticationManagerProtocol {
     
     private init() { }
     
-    
     func signIn(with request: SimpleAuthenticationRequest) {
         Auth.auth().signIn(withEmail: request.email, password: request.password) { authDataResult, error in
             if error != nil {
@@ -25,13 +24,4 @@ class AuthenticationManager: AuthenticationManagerProtocol {
         }
         
     }
-    
-    func logout() {
-        do {
-            try Auth.auth().signOut()
-        } catch let error {
-            print("error : \(error)")
-        }
-    }
-    
 }

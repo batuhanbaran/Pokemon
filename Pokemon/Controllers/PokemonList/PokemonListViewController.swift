@@ -17,6 +17,7 @@ class PokemonListViewController: BaseViewController<PokemonListViewModel> {
     override func prepareViewControllerConfigurations() {
         super.prepareViewControllerConfigurations()
         
+        addFavoriteBarButton()
         addMainComponent()
         bindStatus()
         bindTitle()
@@ -55,6 +56,16 @@ class PokemonListViewController: BaseViewController<PokemonListViewModel> {
                 self.title = "\(count) pokemons in \(self.viewModel.totalPokemonCount)"
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func addFavoriteBarButton() {
+        let barButton = UIBarButtonItem(image: TabBarImages.logout.value, style: .plain, target: self, action: #selector(favoriteButtonAction))
+        barButton.tintColor = .black
+        self.navigationItem.rightBarButtonItem = barButton
+    }
+    
+    @objc func favoriteButtonAction() {
+        viewModel.logout()
     }
 }
 

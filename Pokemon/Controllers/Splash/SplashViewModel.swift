@@ -14,7 +14,7 @@ class SplashViewModel {
     
     let isLoggedIn = BehaviorRelay<Bool>(value: false)
     
-    func checkUserisLoggedIn() {
+    func checkUserIsLoggedIn() {
         Auth.auth().addStateDidChangeListener { auth, user in
             self.isLoggedIn.accept((user == nil) ? false : true)
         }

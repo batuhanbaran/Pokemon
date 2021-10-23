@@ -12,7 +12,5 @@ typealias BooleanBlock = (Bool) -> Void
 protocol AuthenticationManagerProtocol {
     
     func signIn(with request: SimpleAuthenticationRequest)
-    
-    func logout()
         
 }

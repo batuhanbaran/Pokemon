@@ -26,7 +26,7 @@ class SplashViewController: BaseViewController<SplashViewModel> {
 
 extension SplashViewController: LottieViewOutputDelegate {
     func navigateToMainView() {
-        viewModel.checkUserisLoggedIn()
+        viewModel.checkUserIsLoggedIn()
     }
 }
 
@@ -42,8 +42,7 @@ extension SplashViewController: StatusProtocol {
                     pokemonListVC = PokemonListViewController(viewModel: PokemonListViewModel(manager: manager), lottieName: "loading")
                     let pokemonListNavigationVC = UINavigationController(rootViewController: pokemonListVC)
                     pokemonListNavigationVC.modalPresentationStyle = .fullScreen
-
-                    self.present(pokemonListNavigationVC, animated: false)
+                    UIApplication.topViewController()?.present(pokemonListNavigationVC, animated: false, completion: nil)
                 case false:
                     let manager = AuthenticationManager.shared
                     let loginVC = LoginViewController(viewModel: LoginViewModel(authenticationManager: manager))
@@ -51,8 +50,7 @@ extension SplashViewController: StatusProtocol {
                     let loginNavigationVC = UINavigationController(rootViewController: loginVC)
                     loginNavigationVC.modalPresentationStyle = .fullScreen
                     self.lottieView.stop()
-                    
-                    self.present(loginNavigationVC, animated: false)
+                    UIApplication.topViewController()?.present(loginNavigationVC, animated: false, completion: nil)
                 }
             })
             .disposed(by: disposeBag)

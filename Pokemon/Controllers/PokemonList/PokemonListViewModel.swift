@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import RxSwift
 import RxCocoa
+import FirebaseAuth
 
 enum PageLoadingStatus {
     case loading
@@ -68,6 +69,14 @@ final class PokemonListViewModel {
     
     func navigateToPokemonDetail(with selectedPokemon: Pokemon) {
         delegate?.navigateToPokemonDetail(with: selectedPokemon)
+    }
+    
+    func logout() {
+        do {
+            try Auth.auth().signOut()
+        } catch let error {
+            print("error : \(error)")
+        }
     }
 }
 
