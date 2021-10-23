@@ -6,47 +6,53 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-
-class SplashViewController: UIViewController {
-
-    private var lottieView: LottieView!
+class SplashViewController: BaseViewController<SplashViewModel> {
+    
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(red: 227 / 255, green: 52 / 255, blue: 47 / 255, alpha: 1)
-        addLottieView()
-    }
-    
-    private func addLottieView() {
-        lottieView = LottieView(frame: .zero, jsonName: "pokemon")
-        lottieView = lottieView.buildLottieView()
+        
         lottieView.delegate = self
-        lottieView.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(lottieView)
-        
-        NSLayoutConstraint.activate([
-        
-            lottieView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            lottieView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            lottieView.widthAnchor.constraint(equalToConstant: 240),
-            lottieView.heightAnchor.constraint(equalToConstant: 240),
-            
-        ])
-        
+        bindStatus()
         lottieView.play()
     }
 }
 
 extension SplashViewController: LottieViewOutputDelegate {
     func navigateToMainView() {
-        var pokemonListVC = BaseBuilder<PokemonListViewController>().build(with: .fullScreen)
-        let manager = PokemonListManager()
-        pokemonListVC = PokemonListViewController(viewModel: PokemonListViewModel(manager: manager), lottieName: "loading")
-        let navigationViewController = UINavigationController(rootViewController: pokemonListVC)
-        navigationViewController.modalPresentationStyle = .fullScreen
-        self.present(navigationViewController, animated: false)
+        viewModel.checkUserIsLoggedIn()
+    }
+}
+
+extension SplashViewController: StatusProtocol {
+    func bindStatus() {
+        viewModel.isLoggedIn
+            .subscribe(onNext: { [weak self] loginStatus in
+                guard let self = self else { return }
+                switch loginStatus {
+                case true:
+                    var pokemonListVC = BaseBuilder<PokemonListViewController>().build(with: .fullScreen)
+                    let manager = PokemonListManager()
+                    pokemonListVC = PokemonListViewController(viewModel: PokemonListViewModel(manager: manager), lottieName: "loading")
+                    let pokemonListNavigationVC = UINavigationController(rootViewController: pokemonListVC)
+                    pokemonListNavigationVC.modalPresentationStyle = .fullScreen
+                    UIApplication.topViewController()?.present(pokemonListNavigationVC, animated: false, completion: nil)
+                case false:
+                    let manager = AuthenticationManager.shared
+                    let loginVC = LoginViewController(viewModel: LoginViewModel(authenticationManager: manager))
+                    loginVC.title = "Login"
+                    let loginNavigationVC = UINavigationController(rootViewController: loginVC)
+                    loginNavigationVC.modalPresentationStyle = .fullScreen
+                    self.lottieView.stop()
+                    UIApplication.topViewController()?.present(loginNavigationVC, animated: false, completion: nil)
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }

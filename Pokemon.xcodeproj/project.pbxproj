@@ -8,6 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		D83508892722B74A00AEC50A /* PokemonSpritesTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83508882722B74A00AEC50A /* PokemonSpritesTask.swift */; };
+		D86D5518272401A10053DFE4 /* EmailLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D5510272401A10053DFE4 /* EmailLoginView.swift */; };
+		D86D5519272401A10053DFE4 /* EmailLoginViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D5511272401A10053DFE4 /* EmailLoginViewData.swift */; };
+		D86D551A272401A10053DFE4 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D5513272401A10053DFE4 /* TextFieldView.swift */; };
+		D86D551B272401A10053DFE4 /* TextFieldViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D5514272401A10053DFE4 /* TextFieldViewData.swift */; };
+		D86D551C272401A10053DFE4 /* LoginAuthenticationViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D5516272401A10053DFE4 /* LoginAuthenticationViewData.swift */; };
+		D86D551D272401A20053DFE4 /* LoginAuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D5517272401A10053DFE4 /* LoginAuthenticationView.swift */; };
+		D86D5520272402C60053DFE4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D551F272402C60053DFE4 /* LoginViewController.swift */; };
+		D86D5524272406240053DFE4 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D5523272406240053DFE4 /* LoginViewModel.swift */; };
+		D86D552A2724082B0053DFE4 /* ActionButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D55262724082B0053DFE4 /* ActionButtonType.swift */; };
+		D86D552B2724082B0053DFE4 /* ActionButtonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D55272724082B0053DFE4 /* ActionButtonData.swift */; };
+		D86D552C2724082B0053DFE4 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D55282724082B0053DFE4 /* ActionButton.swift */; };
+		D86D552D2724082B0053DFE4 /* ActionButtonTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D55292724082B0053DFE4 /* ActionButtonTheme.swift */; };
+		D86D5530272408860053DFE4 /* MainFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D552F272408860053DFE4 /* MainFont.swift */; };
+		D86D5532272408B30053DFE4 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D5531272408B30053DFE4 /* UIView+Extensions.swift */; };
+		D86D553627240E9C0053DFE4 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D553527240E9C0053DFE4 /* SplashViewModel.swift */; };
+		D86D553B27240F200053DFE4 /* AuthenticationManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D553827240F200053DFE4 /* AuthenticationManagerProtocol.swift */; };
+		D86D553C27240F200053DFE4 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D553927240F200053DFE4 /* AuthenticationManager.swift */; };
+		D86D553D27240F200053DFE4 /* SimpleAuthenticationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D553A27240F200053DFE4 /* SimpleAuthenticationRequest.swift */; };
+		D86D553F272417590053DFE4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D86D553E272417590053DFE4 /* GoogleService-Info.plist */; };
+		D86D5541272442510053DFE4 /* LoginViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D5540272442510053DFE4 /* LoginViewBuilder.swift */; };
 		D8AACBAE27220108002558DD /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = D8AACBAD27220108002558DD /* RxCocoa */; };
 		D8AACBB027220108002558DD /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = D8AACBAF27220108002558DD /* RxRelay */; };
 		D8AACBB227220108002558DD /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D8AACBB127220108002558DD /* RxSwift */; };
@@ -91,6 +111,26 @@
 
 /* Begin PBXFileReference section */
 		D83508882722B74A00AEC50A /* PokemonSpritesTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonSpritesTask.swift; sourceTree = "<group>"; };
+		D86D5510272401A10053DFE4 /* EmailLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailLoginView.swift; sourceTree = "<group>"; };
+		D86D5511272401A10053DFE4 /* EmailLoginViewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailLoginViewData.swift; sourceTree = "<group>"; };
+		D86D5513272401A10053DFE4 /* TextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		D86D5514272401A10053DFE4 /* TextFieldViewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldViewData.swift; sourceTree = "<group>"; };
+		D86D5516272401A10053DFE4 /* LoginAuthenticationViewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginAuthenticationViewData.swift; sourceTree = "<group>"; };
+		D86D5517272401A10053DFE4 /* LoginAuthenticationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginAuthenticationView.swift; sourceTree = "<group>"; };
+		D86D551F272402C60053DFE4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D86D5523272406240053DFE4 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		D86D55262724082B0053DFE4 /* ActionButtonType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButtonType.swift; sourceTree = "<group>"; };
+		D86D55272724082B0053DFE4 /* ActionButtonData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButtonData.swift; sourceTree = "<group>"; };
+		D86D55282724082B0053DFE4 /* ActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		D86D55292724082B0053DFE4 /* ActionButtonTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButtonTheme.swift; sourceTree = "<group>"; };
+		D86D552F272408860053DFE4 /* MainFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFont.swift; sourceTree = "<group>"; };
+		D86D5531272408B30053DFE4 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		D86D553527240E9C0053DFE4 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		D86D553827240F200053DFE4 /* AuthenticationManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManagerProtocol.swift; sourceTree = "<group>"; };
+		D86D553927240F200053DFE4 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		D86D553A27240F200053DFE4 /* SimpleAuthenticationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleAuthenticationRequest.swift; sourceTree = "<group>"; };
+		D86D553E272417590053DFE4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D86D5540272442510053DFE4 /* LoginViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewBuilder.swift; sourceTree = "<group>"; };
 		D8C2049027202FB30011A1BC /* Pokemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C2049327202FB30011A1BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8C2049727202FB30011A1BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +224,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D86D550F272401A10053DFE4 /* EmailLoginComponent */ = {
+			isa = PBXGroup;
+			children = (
+				D86D5510272401A10053DFE4 /* EmailLoginView.swift */,
+				D86D5511272401A10053DFE4 /* EmailLoginViewData.swift */,
+			);
+			path = EmailLoginComponent;
+			sourceTree = "<group>";
+		};
+		D86D5512272401A10053DFE4 /* TextFieldComponent */ = {
+			isa = PBXGroup;
+			children = (
+				D86D5513272401A10053DFE4 /* TextFieldView.swift */,
+				D86D5514272401A10053DFE4 /* TextFieldViewData.swift */,
+			);
+			path = TextFieldComponent;
+			sourceTree = "<group>";
+		};
+		D86D5515272401A10053DFE4 /* LoginAuthenticationComponent */ = {
+			isa = PBXGroup;
+			children = (
+				D86D5516272401A10053DFE4 /* LoginAuthenticationViewData.swift */,
+				D86D5517272401A10053DFE4 /* LoginAuthenticationView.swift */,
+			);
+			path = LoginAuthenticationComponent;
+			sourceTree = "<group>";
+		};
+		D86D551E272402B60053DFE4 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D86D551F272402C60053DFE4 /* LoginViewController.swift */,
+				D86D5523272406240053DFE4 /* LoginViewModel.swift */,
+				D86D5540272442510053DFE4 /* LoginViewBuilder.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D86D55252724082B0053DFE4 /* ActionButtonComponent */ = {
+			isa = PBXGroup;
+			children = (
+				D86D55262724082B0053DFE4 /* ActionButtonType.swift */,
+				D86D55272724082B0053DFE4 /* ActionButtonData.swift */,
+				D86D55282724082B0053DFE4 /* ActionButton.swift */,
+				D86D55292724082B0053DFE4 /* ActionButtonTheme.swift */,
+			);
+			path = ActionButtonComponent;
+			sourceTree = "<group>";
+		};
+		D86D552E272408860053DFE4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D86D552F272408860053DFE4 /* MainFont.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D86D553727240F200053DFE4 /* AuthenticationManager */ = {
+			isa = PBXGroup;
+			children = (
+				D86D553827240F200053DFE4 /* AuthenticationManagerProtocol.swift */,
+				D86D553927240F200053DFE4 /* AuthenticationManager.swift */,
+				D86D553A27240F200053DFE4 /* SimpleAuthenticationRequest.swift */,
+			);
+			path = AuthenticationManager;
+			sourceTree = "<group>";
+		};
 		D8C2048727202FB30011A1BC = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +321,7 @@
 				D8C204D3272031090011A1BC /* Network */,
 				D8C20505272031090011A1BC /* SupportingFiles */,
 				D8C204D9272031090011A1BC /* Utilities */,
+				D86D553E272417590053DFE4 /* GoogleService-Info.plist */,
 				D8C2049327202FB30011A1BC /* AppDelegate.swift */,
 				D8C2049727202FB30011A1BC /* ViewController.swift */,
 				D8C2049927202FB30011A1BC /* Main.storyboard */,
@@ -285,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				D8C204DD272031090011A1BC /* UIApplication+Extension.swift */,
+				D86D5531272408B30053DFE4 /* UIView+Extensions.swift */,
 				D8C204DE272031090011A1BC /* String+Extension.swift */,
 			);
 			path = Extensions;
@@ -302,6 +410,7 @@
 		D8C204E2272031090011A1BC /* FontManagers */ = {
 			isa = PBXGroup;
 			children = (
+				D86D552E272408860053DFE4 /* Helpers */,
 				D8C204E3272031090011A1BC /* FontManager.swift */,
 			);
 			path = FontManagers;
@@ -334,6 +443,10 @@
 		D8C204F0272031090011A1BC /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				D86D55252724082B0053DFE4 /* ActionButtonComponent */,
+				D86D550F272401A10053DFE4 /* EmailLoginComponent */,
+				D86D5515272401A10053DFE4 /* LoginAuthenticationComponent */,
+				D86D5512272401A10053DFE4 /* TextFieldComponent */,
 				D8C2055F272034CD0011A1BC /* Lottie */,
 				D8C204F6272031090011A1BC /* LabelPackComponent */,
 				D8C204FA272031090011A1BC /* ItemComponents */,
@@ -381,6 +494,7 @@
 		D8C20507272031090011A1BC /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				D86D553727240F200053DFE4 /* AuthenticationManager */,
 				D8C20508272031090011A1BC /* PokemonListManager */,
 				D8C2050B272031090011A1BC /* PokemonSpritesManager */,
 			);
@@ -417,6 +531,7 @@
 		D8C20511272031090011A1BC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D86D551E272402B60053DFE4 /* Login */,
 				D8C20512272031090011A1BC /* Splash */,
 				D8C20514272031090011A1BC /* PokemonDetail */,
 				D8C2051B272031090011A1BC /* PokemonList */,
@@ -428,6 +543,7 @@
 			isa = PBXGroup;
 			children = (
 				D8C20513272031090011A1BC /* SplashViewController.swift */,
+				D86D553527240E9C0053DFE4 /* SplashViewModel.swift */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -639,6 +755,7 @@
 				D8C2053F272031090011A1BC /* Assets.xcassets in Resources */,
 				D8C2049B27202FB30011A1BC /* Main.storyboard in Resources */,
 				D8C20563272034CD0011A1BC /* loading.json in Resources */,
+				D86D553F272417590053DFE4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,6 +780,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D86D5541272442510053DFE4 /* LoginViewBuilder.swift in Sources */,
+				D86D551B272401A10053DFE4 /* TextFieldViewData.swift in Sources */,
 				D8C2052B272031090011A1BC /* BaseTableViewCell.swift in Sources */,
 				D8C20523272031090011A1BC /* String+Extension.swift in Sources */,
 				D8C20544272031090011A1BC /* Sprites.swift in Sources */,
@@ -670,16 +789,22 @@
 				D8C3647B272091DB007D6F96 /* HTTPStatusCode.swift in Sources */,
 				D8C2049827202FB30011A1BC /* ViewController.swift in Sources */,
 				D8C364732720916A007D6F96 /* NetworkTaskProtocol.swift in Sources */,
+				D86D5518272401A10053DFE4 /* EmailLoginView.swift in Sources */,
 				D8C3647527209172007D6F96 /* NetworkTask.swift in Sources */,
+				D86D5519272401A10053DFE4 /* EmailLoginViewData.swift in Sources */,
 				D8C20540272031090011A1BC /* PokemonListManager.swift in Sources */,
 				D83508892722B74A00AEC50A /* PokemonSpritesTask.swift in Sources */,
+				D86D553B27240F200053DFE4 /* AuthenticationManagerProtocol.swift in Sources */,
 				D8C3647D272092A3007D6F96 /* ApiManagerProtocol.swift in Sources */,
 				D8C2054B272031090011A1BC /* PokemonListViewModel.swift in Sources */,
 				D8C20520272031090011A1BC /* ApiPaths.swift in Sources */,
 				D8C2052F272031090011A1BC /* BaseBuilder.swift in Sources */,
+				D86D5524272406240053DFE4 /* LoginViewModel.swift in Sources */,
 				D8C20524272031090011A1BC /* TabBarImages.swift in Sources */,
 				D8C2052A272031090011A1BC /* BaseViewController.swift in Sources */,
+				D86D553D27240F200053DFE4 /* SimpleAuthenticationRequest.swift in Sources */,
 				D8C20543272031090011A1BC /* PokemonSpritesProtocol.swift in Sources */,
+				D86D5532272408B30053DFE4 /* UIView+Extensions.swift in Sources */,
 				D8C36478272091BA007D6F96 /* ErrorResponse.swift in Sources */,
 				D8C20549272031090011A1BC /* PokemonDetailViewController.swift in Sources */,
 				D8C2052E272031090011A1BC /* GenericBaseView.swift in Sources */,
@@ -688,6 +813,7 @@
 				D8C20535272031090011A1BC /* LabelDistributionData.swift in Sources */,
 				D8C20521272031090011A1BC /* Observable.swift in Sources */,
 				D8C20537272031090011A1BC /* LabelPackComponent.swift in Sources */,
+				D86D552A2724082B0053DFE4 /* ActionButtonType.swift in Sources */,
 				D8C3647F272093A0007D6F96 /* PokemonTask.swift in Sources */,
 				D8C20564272034CD0011A1BC /* LottieView.swift in Sources */,
 				D8C20547272031090011A1BC /* PokemonSpritesCollectionViewCell.swift in Sources */,
@@ -696,14 +822,23 @@
 				D8C20525272031090011A1BC /* PageViewImages.swift in Sources */,
 				D8C20545272031090011A1BC /* PokemonResult.swift in Sources */,
 				D8C2053B272031090011A1BC /* ItemListView.swift in Sources */,
+				D86D553627240E9C0053DFE4 /* SplashViewModel.swift in Sources */,
 				D8C20538272031090011A1BC /* ItemTableViewCellData.swift in Sources */,
 				D8C20541272031090011A1BC /* PokemonListProtocol.swift in Sources */,
+				D86D5530272408860053DFE4 /* MainFont.swift in Sources */,
+				D86D551D272401A20053DFE4 /* LoginAuthenticationView.swift in Sources */,
 				D8C2049427202FB30011A1BC /* AppDelegate.swift in Sources */,
+				D86D551A272401A10053DFE4 /* TextFieldView.swift in Sources */,
+				D86D552D2724082B0053DFE4 /* ActionButtonTheme.swift in Sources */,
 				D8C20527272031090011A1BC /* TutorialViewInfoStore.swift in Sources */,
 				D8C20539272031090011A1BC /* ItemTableViewCell.swift in Sources */,
+				D86D5520272402C60053DFE4 /* LoginViewController.swift in Sources */,
+				D86D551C272401A10053DFE4 /* LoginAuthenticationViewData.swift in Sources */,
 				D8C2055E2720335B0011A1BC /* ApiManager.swift in Sources */,
+				D86D552B2724082B0053DFE4 /* ActionButtonData.swift in Sources */,
 				D8C20546272031090011A1BC /* SplashViewController.swift in Sources */,
 				D8C20528272031090011A1BC /* UserDefaultsWrapperHelper.swift in Sources */,
+				D86D553C27240F200053DFE4 /* AuthenticationManager.swift in Sources */,
 				D8C20536272031090011A1BC /* LabelPackComponentData.swift in Sources */,
 				D8C2052D272031090011A1BC /* GenericDataProtocol.swift in Sources */,
 				D8C20530272031090011A1BC /* BaseView.swift in Sources */,
@@ -711,6 +846,7 @@
 				D8C20529272031090011A1BC /* GenericValueProtocol.swift in Sources */,
 				D8C2054C272031090011A1BC /* PokemonListViewController.swift in Sources */,
 				D8C2053A272031090011A1BC /* ItemListProtocol.swift in Sources */,
+				D86D552C2724082B0053DFE4 /* ActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

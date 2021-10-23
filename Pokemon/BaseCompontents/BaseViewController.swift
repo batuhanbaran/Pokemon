@@ -17,7 +17,7 @@ class BaseViewController<V>: UIViewController {
     var lottieName: String = ""
     var lottieView: LottieView!
     
-    convenience init(viewModel: V, lottieName: String) {
+    convenience init(viewModel: V, lottieName: String = "") {
         self.init()
         self.viewModel = viewModel
         self.lottieName = lottieName
@@ -25,8 +25,8 @@ class BaseViewController<V>: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        prepareViewControllerConfigurations()
         addLottieView()
+        prepareViewControllerConfigurations()
     }
     
     func prepareViewControllerConfigurations() {

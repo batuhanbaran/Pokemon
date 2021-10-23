@@ -21,5 +21,6 @@ enum TabBarImages: String, GenericValueProtocol {
     case favoriteSelected = "favoriteSelected"
     case bug = "bug"
     case bugSelected = "bugSelected"
+    case logout = "logout"
     
 }
