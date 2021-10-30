@@ -54,9 +54,7 @@ final class PokemonListViewModel {
             case .success(let pokemonResult):
                 guard let pokemons = pokemonResult.results else { return }
                 guard let pokemonCount = pokemonResult.count else { return }
-                for pokemon in pokemons {
-                    self.pokemons.append(pokemon)
-                }
+                self.pokemons.append(contentsOf: pokemons)
                 self.totalPokemonCount = pokemonCount
                 self.currentPokemonCount.accept(self.pokemons.count)
                 self.pageLoadingStatus.accept(.success)

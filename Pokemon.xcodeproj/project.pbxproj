@@ -290,6 +290,13 @@
 			path = AuthenticationManager;
 			sourceTree = "<group>";
 		};
+		D86E073E27249F8E0068D3FA /* Test */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
 		D8C2048727202FB30011A1BC = {
 			isa = PBXGroup;
 			children = (
@@ -531,6 +538,7 @@
 		D8C20511272031090011A1BC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D86E073E27249F8E0068D3FA /* Test */,
 				D86D551E272402B60053DFE4 /* Login */,
 				D8C20512272031090011A1BC /* Splash */,
 				D8C20514272031090011A1BC /* PokemonDetail */,

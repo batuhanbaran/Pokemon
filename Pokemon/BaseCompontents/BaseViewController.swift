@@ -25,8 +25,9 @@ class BaseViewController<V>: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addLottieView()
+        
         prepareViewControllerConfigurations()
+        addLottieView()
     }
     
     func prepareViewControllerConfigurations() {
